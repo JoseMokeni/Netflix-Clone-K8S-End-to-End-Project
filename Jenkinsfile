@@ -12,7 +12,7 @@ pipeline{
         }
         stage('Checkout from Git'){
             steps{
-                git branch: 'tp', url: 'https://github.com/AmanPathak-DevOpsJoseMokeni/Netflix-Clone-K8S-End-to-End-Project.git'
+                git branch: 'tp', url: 'https://github.com/JoseMokeni/Netflix-Clone-K8S-End-to-End-Project.git'
             }
         }
         stage("Sonarqube Analysis"){
