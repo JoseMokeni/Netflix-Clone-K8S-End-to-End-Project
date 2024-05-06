@@ -1,10 +1,8 @@
 pipeline{
     agent any
     tools{
+        jdk 'jdk'
         nodejs 'nodejs'
-    }
-    environment {
-        SCANNER_HOME=tool 'sonarqube-server'
     }
     stages {
         stage('Workspace Cleaning'){
@@ -20,7 +18,7 @@ pipeline{
         stage("Sonarqube Analysis"){
             steps{
                 withSonarQubeEnv('sonarqube-server') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Netflix \
+                    sh '''/bin/sonar-scanner -Dsonar.projectName=Netflix \
                     -Dsonar.projectKey=Netflix \
                     '''
                 }
